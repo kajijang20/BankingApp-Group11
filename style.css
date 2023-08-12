@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "ITC";
+  src: url("fonts/ITCAvantGardePro-XLt.otf") format("opentype");
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

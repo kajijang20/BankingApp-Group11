@@ -17,6 +17,7 @@ const Withdraw = ({ initialBalance, onWithdraw }) => {
       setWithdrawAmount('');
       setMessage(`Successfully withdrawn $${amount.toFixed(2)}`);
     }
+    
   };
 
   return (

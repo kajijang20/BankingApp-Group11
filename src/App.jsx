@@ -13,22 +13,62 @@ import Budget from './components/Pages/Budget/Budget'
 function App() {
   const storedBalance = localStorage.getItem('accountBalance');
   const [balance, setBalance] = useState(storedBalance ? parseFloat(storedBalance) : 5000);
+   const [transactionHistory, setTransactionHistory] = useState([]);
 
 
   const handleWithdraw = (amount) => {
     setBalance(balance - amount);
     localStorage.setItem('accountBalance', balance.toFixed(2));
+
+    const newTransaction = {
+      type: 'Withdrawal',
+      amount: amount,
+      date: new Date().toLocaleString(),
+      description: 'Withdrawal'
+    };
+    setTransactionHistory([...transactionHistory, newTransaction]);
+
+    localStorage.setItem('accountBalance', balance.toFixed(2));
+    localStorage.setItem('transactionHistory', JSON.stringify([...transactionHistory, newTransaction]));
   };
+  
 
   const handleDeposit = (amount) => {
     setBalance(balance + amount);
      localStorage.setItem('accountBalance', balance.toFixed(2));
+     const newTransaction = {
+      type: 'Deposit',
+      amount: amount,
+      date: new Date().toLocaleString(),
+      description:'Deposit'
+    };
+    setTransactionHistory([...transactionHistory, newTransaction]);
+
+    localStorage.setItem('accountBalance', balance.toFixed(2));
+    localStorage.setItem('transactionHistory', JSON.stringify([...transactionHistory, newTransaction]));
   };
 
-  const handleTransfer = (newBalance) => {
-    setBalance(newBalance);
-    localStorage.setItem('accountBalance', balance.toFixed(2));
+const handleTransfer = (newBalance, transferAmount, selectedRecipient) => {
+  const parsedTransferAmount = parseFloat(transferAmount); // Parse the transfer amount as a float
+
+  const transferDescription = `Transferred $${parsedTransferAmount.toFixed(2)} to ${selectedRecipient}`;
+
+  const newTransaction = {
+    type: 'Transfer',
+    amount: parsedTransferAmount,
+    date: new Date().toLocaleString(),
+    description: transferDescription,
   };
+
+  setBalance(newBalance);
+
+  setTransactionHistory(prevTransactionHistory => [...prevTransactionHistory, newTransaction]);
+
+  localStorage.setItem('accountBalance', newBalance.toFixed(2));
+  localStorage.setItem('transactionHistory', JSON.stringify([...transactionHistory, newTransaction]));
+};
+
+  
 
   return (
     <BrowserRouter>

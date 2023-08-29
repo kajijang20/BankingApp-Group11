@@ -79,7 +79,7 @@ const Transfer = ({ initialBalance, onTransfer }) => {
     localStorage.setItem('recipients', JSON.stringify(updatedRecipients))
 
     setTransferHistory([...transferHistory, newTransfer]);
-    onTransfer(newBalance);
+    onTransfer(newBalance,transferAmount, selectedRecipient);
     setTransferAmount('');
     setSelectedRecipient('');
     setBalance(newBalance); 

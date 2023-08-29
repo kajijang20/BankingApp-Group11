@@ -84,18 +84,18 @@ const SignUp = () => {
   return (
     <>
             {success ? (
-                <section>
+                <section className= 'signup-notif'>
                     <h1>Success!</h1>
                     <p>
                         <a href="/Login">Log In</a>
                     </p>
                 </section>
             ) : (
-                <section>
+                <section className= 'signup-section'>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Sign Up</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">
+                    <form onSubmit={handleSubmit} className= 'signup-from'>
+                        <label htmlFor="username" className= 'signup-label'>
                             Username:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
@@ -112,8 +112,10 @@ const SignUp = () => {
                             aria-describedby="uidnote"
                             onFocus={() => setUserFocus(true)}
                             onBlur={() => setUserFocus(false)}
+                            className= 'signup-interface'
+                            
                         />
-                        <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
+                        <p id="uidnote" className={`signup-instructions ${userFocus && user && !validName ? "instructions" : "offscreen"}`}>
                             <FontAwesomeIcon icon={faInfoCircle} />
                             4 to 24 characters.<br />
                             Must begin with a letter.<br />
@@ -121,7 +123,7 @@ const SignUp = () => {
                         </p>
 
 
-                        <label htmlFor="password">
+                        <label htmlFor="password" className= 'signup-label'>
                             Password:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
@@ -136,8 +138,9 @@ const SignUp = () => {
                             aria-describedby="pwdnote"
                             onFocus={() => setPwdFocus(true)}
                             onBlur={() => setPwdFocus(false)}
+                            className= 'signup-interface'
                         />
-                        <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+                        <p id="pwdnote" className={`signup-instructions ${pwdFocus && !validPwd ? "instructions" : "offscreen"}`}>
                             <FontAwesomeIcon icon={faInfoCircle} />
                             8 to 24 characters.<br />
                             Must include uppercase and lowercase letters, a number and a special character.<br />
@@ -145,8 +148,8 @@ const SignUp = () => {
                         </p>
 
 
-                        <label htmlFor="confirm_pwd">
-                            Confirm Password:
+                        <label htmlFor="confirm_pwd" className= 'signup-label'>
+                           <br /> Confirm Password:
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
                         </label>
@@ -160,15 +163,16 @@ const SignUp = () => {
                             aria-describedby="confirmnote"
                             onFocus={() => setMatchFocus(true)}
                             onBlur={() => setMatchFocus(false)}
+                            className= 'signup-interface'
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                        <button disabled={!validName || !validPwd || !validMatch ? true : false} className= 'signup-interface'>Sign Up</button>
                     </form>
-                    <p>
+                    <p className='signup-info'>
                         Already registered?<br />
                         <span className="line">
                            <Link to="/login">Sign In</Link>

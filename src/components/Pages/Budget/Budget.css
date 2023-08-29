@@ -1,0 +1,70 @@
+/* Budget.css */
+.budget-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.expenses-list {
+    list-style: none;
+    padding: 0;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.expense-description {
+    flex: 2;
+    font-weight: bold;
+}
+
+.expense-amount {
+    flex: 1;
+    text-align: right;
+}
+
+.expense-timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+.add-expense-form {
+    margin-top: 20px;
+}
+
+.add-expense-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.add-expense-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-expense-button:hover {
+    background-color: #0056b3;
+}

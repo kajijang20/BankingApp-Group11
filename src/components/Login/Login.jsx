@@ -30,22 +30,19 @@ const Login = () => {
     }
   return (
     <>  {success ? (
-                <section>
-                    <h1>You are logged in!</h1>
-                    <br />
-                    <p>
-                         <a href="/dashboard">Go to Dashboard</a>
-                    </p>
-                </section>
+            <section className= 'login-notif'>
+                <h1>You are logged in!</h1>
+                <br />
+            </section>
             ) : (
     
-            <section>
+            <section className= 'login-section'>
 
                 <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live='assertive'>{errMsg}</p>
                 <h1>Log In</h1>
 
-                <form onSubmit={handleSubmit}>
-                     <label htmlFor="username">Username:</label>
+                <form onSubmit={handleSubmit} className='login-form'>
+                     <label htmlFor="username" className='login-labels'>Username:</label>
                         <input
                             type="text"
                             id="username"
@@ -54,17 +51,19 @@ const Login = () => {
                             onChange={(e) => setUser(e.target.value)}
                             value={user}
                             required
+                            className='login-interface'
                         />
 
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password" className='login-labels'>Password:</label>
                         <input
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
+                            className='login-interface'
                         />
-                        <button>Sign In</button>
+                        <button className='login-interface'>Sign In</button>
                 </form>
                 <p>
                     Need an Account? <br />

@@ -9,7 +9,7 @@ const Withdraw = ({ initialBalance, onWithdraw }) => {
     const amount = parseFloat(withdrawAmount);
 
     if (isNaN(amount) || amount <= 0) {
-      setMessage('Withdrawal amount must be a valid positive number');
+      setMessage('Withdrawal amount must be a valid positive number!');
     } else if (amount > initialBalance) {
       setMessage('Insufficient funds');
     } else {
@@ -22,8 +22,8 @@ const Withdraw = ({ initialBalance, onWithdraw }) => {
 
   return (
     <div className="withdraw-container">
-        
       <h3 className="withdraw-heading">Withdraw</h3>
+      
       <input
         type="number"
         placeholder="Enter amount"

@@ -21,7 +21,7 @@ const Deposit = ({ initialBalance, onDeposit }) => {
     } else {
       const newBalance = balance + amount;
       setBalance(newBalance);
-      onDeposit(newBalance);
+      onDeposit(amount);
       setDepositAmount('');
       setMessage(`Deposited $${amount.toFixed(2)} successfully!`);
       localStorage.setItem('accountBalance', newBalance.toFixed(2));
@@ -30,8 +30,7 @@ const Deposit = ({ initialBalance, onDeposit }) => {
 
   return (
     <div className="deposit-container">
-      <h1>Current Account Balance</h1>
-      <h2>${balance.toFixed(2)}</h2>
+      <h1>Deposit</h1>
 
       <div className="deposit-form">
         <input
@@ -39,11 +38,12 @@ const Deposit = ({ initialBalance, onDeposit }) => {
           placeholder="Enter deposit amount"
           value={depositAmount}
           onChange={(e) => setDepositAmount(e.target.value)}
+          className="deposit-input"
         />
-        <button onClick={handleDeposit}>Deposit</button>
       </div>
+        <button className="deposit-button" onClick={handleDeposit}>Deposit</button>
 
-      {message && <p className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
+      {message && <p className={`deposit-message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
     </div>
   );
 };

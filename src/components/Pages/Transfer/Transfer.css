@@ -1,13 +1,14 @@
 /* Transfer.css */
 
 .transfer-container {
-    max-width: 400px;
+    text-align: center;
+    width: 1080px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #transparent;
 }
 
 .recipient-selector label,
@@ -19,8 +20,8 @@
 
 .recipient-selector select,
 .amount-input input {
-    width: 100%;
-    padding: 8px;
+    width: 45%;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
@@ -35,15 +36,16 @@ button {
     display: block;
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: #007bff;
+    background-color: #5c8374;
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin-left: 45%;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #183d3d;
 }
 
 .recipient-table {
@@ -62,7 +64,7 @@ button:hover {
 }
 
 .recipient-table th {
-    background-color: #f2f2f2;
+    background-color: #183d3d;
     font-weight: bold;
     text-align: left;
 }

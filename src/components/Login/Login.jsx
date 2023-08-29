@@ -63,7 +63,7 @@ const Login = () => {
                             required
                             className='login-interface'
                         />
-                        <button className='login-interface'>Sign In</button>
+                        <button className='login-button'>Sign In</button>
                 </form>
                 <p>
                     Need an Account? <br />

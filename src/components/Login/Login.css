@@ -1,6 +1,4 @@
 
-
-
 .login-body {
     display: flex;
     justify-content: center;
@@ -46,6 +44,17 @@ a:visited {
     padding: 0.5rem;
     margin-top: 1rem;
 }
+
+.login-button {
+    font-family: 'Nunito', sans-serif;
+        font-size: 22px;
+        padding: 0.25rem;
+        border-radius: 25px;
+        
+        padding: 0.5rem;
+        margin-top: 1rem;
+    }
+
 
 .login-labels {
     display: flex;

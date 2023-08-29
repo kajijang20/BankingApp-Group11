@@ -1,31 +1,42 @@
 import { Link } from 'react-router-dom';
+import { AiOutlineBank} from 'react-icons/ai'
+import { GiReceiveMoney} from 'react-icons/gi'
+import { GiPayMoney} from 'react-icons/gi'
+import { SiMoneygram} from 'react-icons/si'
+import { GiTakeMyMoney} from 'react-icons/gi'
 import './Dashboard.css';
 
-
-const Dashboard = () => {
+const Dashboard = ({ balance }) => {
    
   return (
-    <div className='dashboard-container'>
+    <div>
+      <header className="dash-header">
+        <p>Balance: ${balance.toFixed(2)}</p>
+        </header>
+    
+      <div className='dashboard-container'>
       <Link  to='/account' className='dashboard-button account'>
         <h2 className='dashboard-fonts'>Account</h2>
+        <AiOutlineBank  className="dash-icon"/>
       </Link>
 
-      <Link to='/withdraw' className='dashboard-button'>
+      <Link to='/withdraw' className='dashboard-button withdraw'>
         <h2 className='dashboard-fonts'>Withdraw</h2>
-        {/* Add your withdraw dashboard content here */}
+        <GiReceiveMoney  className="dash-icon" />
       </Link>
-      <Link to='/deposit' className='dashboard-button'>
+      <Link to='/deposit' className='dashboard-button deposit'>
         <h2 className='dashboard-fonts'>Deposit</h2>
-        {/* Add your deposit dashboard content here */}
+        <GiPayMoney  className="dash-icon"/>
       </Link>
-      <Link to='/transfer' className='dashboard-button'>
+      <Link to='/transfer' className='dashboard-button transfer'>
         <h2 className='dashboard-fonts'>Transfer</h2>
-        {/* Add your transfer dashboard content here */}
+        <SiMoneygram  className="dash-icon"/>
       </Link>
-      <Link  to='/budget'className='dashboard-button'>
+      <Link  to='/budget'className='dashboard-button budget'>
         <h2 className='dashboard-fonts'>Budget</h2>
-        {/* Add your transfer dashboard content here */}
+        <GiTakeMyMoney  className="dash-icon" />
       </Link>
+    </div>
     </div>
   );
 };

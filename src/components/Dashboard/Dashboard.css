@@ -10,14 +10,13 @@
      background-color: rgba(0, 0, 0, 0.4);
      border-radius: 0.5rem;
      margin-right: 1rem;
-     /* Add spacing between sections */
      transition: background-color 0.3s ease;
-     /* Add smooth transition effect */
      cursor: pointer;
-     /* Change cursor to pointer */
      border: none;
      color: white;
      font-size: 1rem;
+     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
  }
 
  .dashboard-button:hover {
@@ -28,7 +27,15 @@
  .dashboard-fonts {
     font-family: 'Nunito', sans-serif;
         font-size: 22px;
-        color: #0e0d0d;
+        color: #fff;
  }
 
- 
+  .dashboard-button:hover {
+      transform: scale(1.1);
+      /* Enlarge the button on hover */
+  }
+
+  .dash-icon {
+    font-size: 45px;
+    margin-left: 15%;
+  }

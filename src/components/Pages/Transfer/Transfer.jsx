@@ -22,6 +22,7 @@ const Transfer = ({ initialBalance, onTransfer }) => {
   const [balance, setBalance] = useState(initialBalance);
   const [recipients, setRecipients] = useState([]);
   const [transferHistory, setTransferHistory] = useState([]);
+   const [editingRecipient, setEditingRecipient] = useState(null);
 
    useEffect(() => {
     const savedRecipients = localStorage.getItem('recipients');
@@ -88,6 +89,8 @@ const Transfer = ({ initialBalance, onTransfer }) => {
     setMessage(`Transferred $${amount} to ${selectedRecipient}`);
     console.log(localStorage)
   };
+
+  
 
   return (
   <div className="transfer-container">

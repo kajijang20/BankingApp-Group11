@@ -15,7 +15,7 @@
 html {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
-    color: #0e0d0d;
+    color: #ffff;
 }
 
 body {
@@ -24,6 +24,8 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    background: rgb(4, 13, 18);
+        background: linear-gradient(90deg, rgba(4, 13, 18, 1) 0%, rgba(24, 61, 61, 1) 73%, rgba(92, 131, 116, 1) 100%);
 }
 
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Withdraw.css'; // Import the CSS file
 
 const Withdraw = ({ initialBalance, onWithdraw }) => {
@@ -39,6 +40,11 @@ const Withdraw = ({ initialBalance, onWithdraw }) => {
           {message}
         </p>
       )}
+      <div className="card-footer">
+        <Link to="/dashboard" className="styled-link">
+          Back to Dashboard
+        </Link>
+      </div>
     </div>
   );
 };

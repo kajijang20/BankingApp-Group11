@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Budget.css';
 
 const Budget = ({ balance, setBalance, transactionHistory, setTransactionHistory }) => {
@@ -87,6 +88,11 @@ const Budget = ({ balance, setBalance, transactionHistory, setTransactionHistory
           Add Expense
         </button>
       </div>
+      <div className="card-footer">
+        <Link to="/dashboard" className="styled-link">
+          Back to Dashboard
+        </Link>
+        </div>
     </div>
   );
 };

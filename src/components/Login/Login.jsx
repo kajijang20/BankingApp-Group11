@@ -13,6 +13,7 @@ const Login = () => {
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+      const [loggedInUser, setLoggedInUser] = useState('');
 
     useEffect(() => {userRef.current.focus();},[])
 
@@ -20,18 +21,27 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user, pwd);
+
+        const storedUserData = JSON.parse(localStorage.getItem('userData')) || {};
+        if (!storedUserData[user] || storedUserData[user] !== pwd) {
+            setErrMsg('Invalid username or password');
+            return;
+        }
+
         setUser('');
         setPwd('');
+        setLoggedInUser(user);
         setSuccess(true);
+
         setTimeout(() => {
             navigate('/dashboard');
-            }, 2000);
-    }
+        }, 2000);
+    };
+
   return (
     <>  {success ? (
             <section className= 'login-notif'>
-                <h1>You are logged in!</h1>
+                <h1>Welcome, {loggedInUser}!</h1>
                 <br />
             </section>
             ) : (
@@ -63,7 +73,7 @@ const Login = () => {
                             required
                             className='login-interface'
                         />
-                        <button className='login-button'>Sign In</button>
+                        <button className='login-button'>Log In</button>
                 </form>
                 <p>
                     Need an Account? <br />

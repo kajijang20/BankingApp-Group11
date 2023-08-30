@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Deposit.css';
 
 const Deposit = ({ initialBalance, onDeposit }) => {
@@ -44,7 +45,13 @@ const Deposit = ({ initialBalance, onDeposit }) => {
         <button className="deposit-button" onClick={handleDeposit}>Deposit</button>
 
       {message && <p className={`deposit-message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
+      <div className="card-footer">
+        <Link to="/dashboard" className="styled-link">
+          Back to Dashboard
+        </Link>
+      </div>
     </div>
+    
   );
 };
 

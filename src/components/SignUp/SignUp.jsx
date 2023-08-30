@@ -64,21 +64,20 @@ const SignUp = () => {
         console.log(user, pwd);
 
         // Check for Username Already Taken
-        const existingUserData = JSON.parse(localStorage.getItem('userData'));
-        if (existingUserData && existingUserData.username === user) {
+       const existingUserData = JSON.parse(localStorage.getItem('userData')) || {};
+        if (existingUserData[user]) {
             setErrMsg('Username is already taken');
             return;
         }
-        // Save User Data to Local Storage
-        const userData = { username: user, password: pwd };
-        localStorage.setItem('userData', JSON.stringify(userData));
+
+        const newUserData = { ...existingUserData, [user]: pwd };
+        localStorage.setItem('userData', JSON.stringify(newUserData));
         setSuccess(true);
+
         setTimeout(() => {
             navigate('/Login');
-            }, 2000);
-        
-       
-    }
+        }, 2000);
+    };
 
    
   return (
@@ -86,9 +85,6 @@ const SignUp = () => {
             {success ? (
                 <section className= 'signup-notif'>
                     <h1>Success!</h1>
-                    <p>
-                        <a href="/Login">Log In</a>
-                    </p>
                 </section>
             ) : (
                 <section className= 'signup-section'>
@@ -170,7 +166,7 @@ const SignUp = () => {
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false} className= 'signup-interface'>Sign Up</button>
+                        <button disabled={!validName || !validPwd || !validMatch ? true : false} className= 'signup-button'>Sign Up</button>
                     </form>
                     <p className='signup-info'>
                         Already registered?<br />

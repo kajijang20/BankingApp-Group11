@@ -47,20 +47,23 @@ a:visited {
 
 .login-button {
     font-family: 'Nunito', sans-serif;
-        font-size: 22px;
-        padding: 0.25rem;
-        border-radius: 25px;
-        
-        padding: 0.5rem;
-        margin-top: 1rem;
+    font-size: 22px;
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    display: block;
+    margin-left: 0;
+    transition: background-color 0.3s ease;
     }
 
-
+.login-button::hover {
+    background-color: #183D3D;
+}
 .login-labels {
     display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
     margin-top: 1rem;
 }
 
@@ -99,7 +102,7 @@ a:visited {
 }
 
 .errmsg {
-    background-color: lightpink;
+    
     color: firebrick;
     font-weight: bold;
     padding: 0.5rem;

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import './Transfer.css'
+import { Link } from 'react-router-dom';
 
 const recipients = [
-  { id: 1, name: 'John Doe', accountNumber: '0000', balance: 3000 },
-  { id: 2, name: 'Jane Smith', accountNumber: '1111', balance: 500 },
-  { id: 3, name: 'Alice Johnson', accountNumber: '6969', balance: 10000 },
-  // ... Add more mock recipients as needed
+  { id: 1, name: 'John Wick', accountNumber: '0000', balance: 3000 },
+  { id: 2, name: 'Joe Rogan', accountNumber: '1111', balance: 500 },
+  { id: 3, name: 'Tony Stark', accountNumber: '3000', balance: 3000 },
+  { id: 4, name: 'Elon Musk ', accountNumber: '6969', balance: 500 },
+  { id: 5, name: 'Bong Bong Marcos', accountNumber: '6969', balance: 0 },
 ];
 
 const columns = [
@@ -22,7 +24,6 @@ const Transfer = ({ initialBalance, onTransfer }) => {
   const [balance, setBalance] = useState(initialBalance);
   const [recipients, setRecipients] = useState([]);
   const [transferHistory, setTransferHistory] = useState([]);
-   const [editingRecipient, setEditingRecipient] = useState(null);
 
    useEffect(() => {
     const savedRecipients = localStorage.getItem('recipients');
@@ -140,6 +141,11 @@ const Transfer = ({ initialBalance, onTransfer }) => {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="card-footer">
+        <Link to="/dashboard" className="styled-link">
+          Back to Dashboard
+        </Link>
       </div>
     </div>
   );

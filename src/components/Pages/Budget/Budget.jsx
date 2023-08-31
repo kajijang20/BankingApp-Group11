@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Budget.css';
 
@@ -49,11 +49,21 @@ const Budget = ({ balance, setBalance, transactionHistory, setTransactionHistory
     }
   };
 
-  const handleRemoveExpense = (id) => {
+  const handleRemoveExpense = (id, amount, description  ) => {
     const updatedExpenses = expenses.filter(expense => expense.id !== id);
     setExpenses(updatedExpenses);
+    localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+
+    const newBalance = balance + amount;
+  setBalance(newBalance);
+  localStorage.setItem('accountBalance', newBalance.toFixed(2));
+
+  const updatedTransactionHistory = transactionHistory.filter(transaction => !(transaction.type === 'Expense' && transaction.amount === amount && transaction.description === description));
+  setTransactionHistory(updatedTransactionHistory);
+  localStorage.setItem('transactionHistory', JSON.stringify(updatedTransactionHistory));
   };
 
+  
   return (
     <div className="budget-container">
       <h2>Expense Tracker</h2>
@@ -63,7 +73,7 @@ const Budget = ({ balance, setBalance, transactionHistory, setTransactionHistory
           <li key={expense.id} className="expense-item">
             <span className="expense-description">{expense.description}</span>
             <span className="expense-amount">${expense.amount.toFixed(2)}</span>
-           <button className="expense-button" onClick={() => handleRemoveExpense(expense.id)}>
+           <button className="expense-button" onClick={() => handleRemoveExpense(expense.id, expense.amount, expense.description)}>
   Remove
 </button>
 
